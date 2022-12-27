@@ -60,8 +60,8 @@ class FormBuilderPhoneField extends FormBuilderField<String> {
     FormFieldValidator<String>? validator,
     String? initialValue,
     InputDecoration decoration = const InputDecoration(),
-    ValueChanged<String>? onChanged,
-    ValueTransformer<String>? valueTransformer,
+    ValueChanged<String?>? onChanged,
+    ValueTransformer<String?>? valueTransformer,
     bool enabled = true,
     FormFieldSetter<String>? onSaved,
     AutovalidateMode autovalidateMode = AutovalidateMode.disabled,
@@ -125,7 +125,7 @@ class FormBuilderPhoneField extends FormBuilderField<String> {
             final state = field as _FormBuilderPhoneFieldState;
 
             return InputDecorator(
-              decoration: state.decoration(),
+              decoration: state.decoration,
               child: Row(
                 children: <Widget>[
                   GestureDetector(
@@ -274,7 +274,7 @@ class _FormBuilderPhoneFieldState
         return CountryPickerCupertino(
           pickerSheetHeight: widget.cupertinoPickerSheetHeight ?? 300.0,
           onValuePicked: (Country country) {
-            effectiveFocusNode!.requestFocus();
+            effectiveFocusNode.requestFocus();
             setState(() => _selectedDialogCountry = country);
             didChange(fullNumber);
           },
