@@ -151,7 +151,7 @@ class FormBuilderPhoneField extends FormBuilderField<String> {
                           '+${state._selectedDialogCountry.phoneCode} ',
                           style: Theme.of(state.context)
                               .textTheme
-                              .subtitle1!
+                              .titleMedium!
                               .merge(style),
                         ),
                       ],
